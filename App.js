@@ -54,26 +54,31 @@ export default class App extends Component<Props> {
     // mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
     // mNotificationManager.createNotificationChannel(notificationChannel);
 // Build a channel
-const channel = new firebase.notifications.Android.Channel('test-channel2', 'Test Channel2', firebase.notifications.Android.Importance.Max)
-  .setDescription('My apps test channel').setSound('secound.mp3');
+const channel = new firebase.notifications.Android.Channel('test-channel8', 'Test Channel8', firebase.notifications.Android.Importance.Max)
+  .setDescription('My apps test channel')
+  .enableVibration(true)
+  .setSound('first.wav');
 
 // Create the channel
 firebase.notifications().android.createChannel(channel);
 
     const notification = new firebase.notifications.Notification()
     .setNotificationId('notificationId')
-    .setTitle('My notification title1')
-    .setBody('My notification body')
-    .setSound("first.wav")
+    .setTitle('بده دو ')
+    //.setBody('بده دو')
+    .setSound(channel.sound)
     .setData({
       key1: 'value1',
       key2: 'value2',
-    });
-    notification.android.setChannelId(channel.channelId).setSound(channel.sound);
+    })
+    .android.setLargeIcon('ic_launcher')
+    .android.setBigText('right')
+    .android.setChannelId(channel.channelId).setSound(channel.sound)
+    .android.setTimeoutAfter(30000);
     firebase.notifications().displayNotification(notification)
     const date = new Date();
     date.setMinutes(date.getMinutes() + 1);
-    console.log(date);
+    // console.log(date);
     // firebase.notifications().scheduleNotification(notification, {
     //     fireDate: date.getTime(),
     //     //'repeatInterval':'minute'
