@@ -72,9 +72,8 @@ firebase.notifications().android.createChannel(channel);
       key2: 'value2',
     })
     .android.setLargeIcon('ic_launcher')
-    .android.setBigText('right')
     .android.setChannelId(channel.channelId).setSound(channel.sound)
-    .android.setTimeoutAfter(30000);
+    //.android.setTimeoutAfter(30000);
     firebase.notifications().displayNotification(notification)
     const date = new Date();
     date.setMinutes(date.getMinutes() + 1);

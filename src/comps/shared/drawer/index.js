@@ -6,14 +6,12 @@ import { Actions } from 'react-native-router-flux';
 //coms
 import words from '../../../shared/words';
 import drawer from './styles';
-import styles from '../styles';
-
 
 export default class SideMenu extends React.Component {
     render() {
         return (
             <Content>
-                <Item style={drawer.header}>
+                {/* <Item style={drawer.header}>
                     <Image style={drawer.headerImage} source={require("../../../assets/images/home.png")} />
                 </Item>
                 <Item style={drawer.item} onPress={() => Actions.unitManage()}>
@@ -23,7 +21,7 @@ export default class SideMenu extends React.Component {
                 <Item style={drawer.item} onPress={() => Actions.home()}>
                     <Icon name="cash" style={drawer.routeIcon} />
                     <Text style={[drawer.routeName, styles.fontFa]}>{words.SaveCost}</Text>
-                </Item>
+                </Item> */}
             </Content>
         );
     }
