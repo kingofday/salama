@@ -10,7 +10,8 @@
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
-      android:supportsRtl="true"
+      android:supportsRtl="false"
+      android:textDirection="4"
       android:allowBackup="false"
       android:launchMode="singleTop"
       android:theme="@style/AppTheme">

@@ -107,10 +107,13 @@ firebase.notifications().android.createChannel(channel);
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View style={{flex:1,flexDirection: 'row',}}>
+        <View style={{flex:0.5,backgroundColor:'green'}}>
+            <Text style={{color:'#ffffff',fontSize:30}}>سلام بر دنیا...</Text>
+        </View>
+        <View style={{flex:0.5,backgroundColor:'red'}}>
+
+      </View>
       </View>
     );
   }
