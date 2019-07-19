@@ -1,11 +1,15 @@
 import React from 'react';
-import { Router, Scene, Lightbox, Drawer } from 'react-native-router-flux';
+import { Router, Scene, Stack, Lightbox, Drawer } from 'react-native-router-flux';
 import { connect, Provider } from 'react-redux';
 
 //routes
+import appStore from './../shared/store';
 import Splash from './splash';
 import Home from './home';
-import Lightbox from './shared/lightBox';
+import AlarmInfo from './AlarmInfo';
+import PublicLightbox from './shared/lightBox';
+import PublicDrawer from './shared/drawer';
+import words from './../shared/words';
 
 export default class App extends React.Component {
   render() {
@@ -14,22 +18,12 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <RouterWithRedux>
-          <Scene>
-            <Scene key="root" hideNavBar>
-              <Lightbox hideNavBar>
-                <Scene hideNavBar>
-                  <Drawer key="drawer"
-                    contentComponent={SideMenu}
-                    drawerPosition="right">
-                    <Scene hideNavBar>
-                      <Scene key="home" component={Home} title={words.Home} />
-                    </Scene>
-                  </Drawer>
-                </Scene>
-                <Scene key="lightBox" component={Lightbox} />
-              </Lightbox>
-            </Scene>
-            <Scene key="splash" hideNavBar component={Splash} title="Splash" initial />
+          <Scene hideNavBar initial>
+            <Stack key="root" hideNavBar>
+              <Scene key="alarmInfo" component={AlarmInfo} title="alarm info" />
+              <Scene key="home" component={Home} title="home" initial />
+            </Stack>
+            <Scene key="splash" component={Splash} title="Splash" initial />
           </Scene>
         </RouterWithRedux>
       </Provider>

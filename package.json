@@ -8,12 +8,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
+    "native-base": "^2.12.2",
+    "react": "16.6.0-alpha.8af6728",
+    "react-native": "^0.57.1",
     "react-native-firebase": "^5.2.0",
-    "react-native-router-flux": "^4.0.6",
-    "react-redux": "^7.1.0",
-    "redux": "^4.0.4"
+    "react-native-router-flux": "^4.0.0",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "schedule": "^0.4.0"
   },
   "devDependencies": {
     "babel-jest": "24.8.0",
@@ -26,8 +28,7 @@
   },
   "rnpm": {
     "assets": [
-      "./src/assets/fonts",
-      "./src/assets/sounds"
+      "./src/assets/fonts"
     ]
   }
 }

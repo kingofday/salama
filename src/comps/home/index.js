@@ -1,49 +1,50 @@
-import React from 'react';
-import { View,FlatList} from 'native-base';
-
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, FlatList } from 'react-native';
+import type { Notification, NotificationOpen } from 'react-native-firebase';
+import firebase from 'react-native-firebase';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import words from './../../shared/words'
 
-//comps
-import Layout from '../shared/layout'
-import strings from '../../shared/strings';
-
-class Home extends React.Component {
-    componentWillMount() {
-    }
-
-
-    render() {
-        const data = this.state.items.map(x => ({ ...x, selected: false, key: x.id.toString() }))
-        return (
-            <Layout>
-                {this.state.header}
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <FlatList
-                        style={{}}
-                        data={data}
-                        renderItem={(item) => (<CostItem item={item.item} onPressItem={this._onPressItem.bind(this)} />)}
-                        extraData={this.state}
-                        onEndReached={this._getCosts.bind(this)}
-                        onEndReachedThreshold={0.1}
-                    >
-                    </FlatList>
-                </View>
-            </Layout>
-
-        );
-    }
+class Home extends Component {
+  componentDidMount() {
+    this.state.items = [
+      {
+        type: 0,
+        label: words.reminder,
+        action: 'reminder'
+      },
+      {
+        type: 1,
+        label: words.drugTime,
+        action: 'reminder'
+      },
+      {
+        type: 2,
+        label: words.doctorTime,
+        action: 'reminder'
+      }
+    ];
+  }
+  render() {
+    return (
+      <View style={{ flex: 1, flexDirection: 'row', }}>
+        <FlatList data={this.state.items}
+         renderItem= />
+      </View>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    return { ...state};
+  return { ...state };
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        setIds: (ids) => { dispatch(setIds(ids)); },
+  return {
+    //setIds: (ids) => { dispatch(setIds(ids)); },
 
-    }
+  }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

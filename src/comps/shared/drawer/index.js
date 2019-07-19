@@ -2,12 +2,10 @@ import React from 'react';
 import { Text, Icon, Item, Content } from 'native-base';
 import { Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 //coms
-import words from '../../../shared/words';
-import drawer from './styles';
 
-export default class SideMenu extends React.Component {
+
+export default class PublicDrawer extends React.Component {
     render() {
         return (
             <Content>
