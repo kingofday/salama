@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { View } from 'native-base';
-import Layout, { CustomText } from '../shared/public'
+import Layout, { CustomText } from './../shared/Public'
 import styles from './../shared/styles'
 import words from './../../shared/words'
 

@@ -13,6 +13,7 @@ import words from './../shared/words';
 
 export default class App extends React.Component {
   render() {
+    console.log('App...');
     const RouterWithRedux = connect()(Router);
     const store = appStore();
     return (
@@ -20,7 +21,7 @@ export default class App extends React.Component {
         <RouterWithRedux>
           <Scene hideNavBar initial>
             <Stack key="root" hideNavBar>
-              <Scene key="alarmInfo" component={AlarmInfo} title="alarm info" />
+               <Scene key="alarmInfo" component={AlarmInfo} title="alarm info" /> 
               <Scene key="home" component={Home} title="home" initial />
             </Stack>
             <Scene key="splash" component={Splash} title="Splash" initial />

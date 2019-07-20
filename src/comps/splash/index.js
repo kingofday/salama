@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, TouchableOpacity,Image, Linking } from 'react-native';
+import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 //comps
@@ -8,6 +8,7 @@ import { Actions } from 'react-native-router-flux';
 export default class Splash extends React.Component {
     componentDidMount() {
         setTimeout(() => {
+            console.log('splash...');
             Actions.reset("root");
         }, 1000)
     }
