@@ -10,8 +10,9 @@ class Home extends Component {
     super(props);
     console.log('home...');
     this.state = {
-      items: [
-        [{
+      list: [{
+        key: '0',
+        arr: [{
           key: '0',
           label: words.reminder,
           action: 'reminder'
@@ -21,7 +22,10 @@ class Home extends Component {
           label: words.drugTime,
           action: 'drug'
         }],
-        [{
+      },
+      {
+        key: '1',
+        arr: [{
           key: '2',
           label: words.doctorTime,
           action: 'doctor'
@@ -31,14 +35,14 @@ class Home extends Component {
           label: words.doctorTime,
           action: 'exercise'
         }]
-      ]
+      }]
     };
   }
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'row', }}>
-        <FlatList data={this.state.items}
-          renderItem={(arr) => <ListItem items={arr} />} />
+        <FlatList data={this.state.list}
+          renderItem={(i) => <ListItem model={i} />} />
       </View>
     );
   }
