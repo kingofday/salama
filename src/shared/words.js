@@ -1,9 +1,10 @@
 export default words = {
+    add:'افزودن',
     Time:'زمان',
     reminder:'یادآور',
     doctor:'دکتر',
     visit:'ملاقات',
-    excersise:'تمرین ورزشی',
+    exercise:'تمرین ورزشی',
     home:'خانه',
     salama:'سلاما',
     drugTime:'وقت دارو',

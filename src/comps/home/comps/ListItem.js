@@ -27,11 +27,10 @@ export default class ListItem extends React.Component {
 
     }
     render() {
-        var model = this.props.model.item;
-        console.log(model);
+        var row = this.props.model.item;
         return (
-            <Item style={{ flex: 1 }} padder>
-                {model.arr.map(i => <Section item={i} key={i.key} />)}
+            <Item style={{ flex: 1 }}>
+                {row.cols.map(i => <Section item={i} key={i.key} />)}
             </Item>
         );
 
