@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Container,Text } from 'native-base';
-import { StyleSheet, Platform  } from 'react-native'
+import { Container, Text, Spinner } from 'native-base';
+import { Platform } from 'react-native'
 
 const font = {
     ...Platform.select({
@@ -28,13 +28,14 @@ export default class Layout extends React.Component {
 }
 
 export class CustomText extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
-            <View>
-                <Text style={[font, { fontSize: 14, color: '#666666' }, this.props.styles]}>
-                    {this.props.children}
-                </Text>
-            </View>
+            <Text style={[font, { fontSize: 14, color: '#666666' }, this.props.style]}>
+                {this.props.children}
+            </Text>
         );
     }
 }
