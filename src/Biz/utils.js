@@ -1,4 +1,4 @@
-import { words } from "./../shared/words";
+import { words } from "../shared/constats";
 
 export default function getId() {
     var dt = new Date().getTime();

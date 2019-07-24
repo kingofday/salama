@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { connect } from 'react-redux';
-import words from './../../shared/words'
-import Layout, { CustomText } from './../shared/Public';
-import Header from './Header';
+import { Content, Button } from 'native-base'
+import firebase from 'react-native-firebase';
+import { Actions } from 'react-native-router-flux';
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    console.log('info ...');
+import words from '../../shared/constats'
+import Layout, { CustomText } from './../shared/Public';
+
+export default class Notif extends Component {
+
+  _confirm(notif) {
+    firebase.notifications().cancelNotification(notif.data.id);
   }
   render() {
+    const notif = this.props.notif;
+    console.log('notif:');
+    console.log(notif);
     return (
       <Layout style={{ flex: 1 }}>
-        <Header title={words.salama} />
-        <View>
-          <CustomText>اطلاعات نوتیف</CustomText>
-        </View>
+        <Content>
+          <CustomText>{notif.data.body}</CustomText>
+          <Button bordered info onPress={() => { this._confirm(notif); }}>
+            <CustomText>{words.confirm}</CustomText>
+          </Button>
+        </Content>
       </Layout>
     );
   }

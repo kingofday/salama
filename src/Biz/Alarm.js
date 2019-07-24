@@ -1,6 +1,8 @@
 //import firebase from 'react-native-firebase';
 import type { Notification, NotificationOpen, assert } from 'react-native-firebase';
 import firebase from 'react-native-firebase';
+import { Actions } from 'react-native-router-flux'
+
 import getId from './utils'
 
 export default class alarm {
@@ -8,7 +10,6 @@ export default class alarm {
     static create({ type, title, body, date, repeat }) {
         var init = function () {
             var id = getId();
-            console.log('chera');
             //======== step1:init channel
             const channel = new firebase.notifications
                 .Android.Channel(`ch_${id}`, `name_${id}`, firebase.notifications.Android.Importance.Max)
@@ -29,30 +30,34 @@ export default class alarm {
                 .setData({
                     id: id,
                     type: type,
+                    title: title,
+                    body: body
                 });
             //firebase.notifications().displayNotification(notification)
             const date = new Date();
             date.setSeconds(date.getSeconds() + 30);
-            console.log('scheduling...');
             firebase.notifications().scheduleNotification(notification, {
                 fireDate: date.getTime(),
                 //'repeatInterval':'minute'
             })
 
-            firebase.notifications().onNotificationOpened((notification) => {
+            firebase.notifications().onNotificationOpened((notification: Notification) => {
                 // Process your notification as required
-                console.log('opened');
+                console.log('opened 1:');
+                console.log(notification.notification);
+                Actions.notif({notif:notification.notification});
             });
 
             firebase.notifications().onNotificationDisplayed((notification) => {
                 // Process your notification as required
                 console.log('displayed');
             });
-
+            //========== App Is In Forground
             firebase.notifications().onNotification((notification) => {
                 // Process your notification as required
                 console.log('home-> on notif');
-                //Actions.alarmInfo();
+                console.log(notification);
+                firebase.notifications().displayNotification(notification);
             });
         };
 

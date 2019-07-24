@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import words from './../../shared/words'
+import words from '../../shared/constats'
 import ListItem from './ListItem'
 import { createFlatListItems } from './../../Biz/utils'
 import Layout from './../shared/Public';
 import Header from './Header';
 
-class Home extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
-    console.log('home...');
     var items = [
       {
         type: '0',
@@ -51,15 +50,15 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { ...state };
-}
+// const mapStateToProps = state => {
+//   return { ...state };
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //setIds: (ids) => { dispatch(setIds(ids)); },
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     //setIds: (ids) => { dispatch(setIds(ids)); },
 
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+// export default connect(mapStateToProps, mapDispatchToProps)(Home);

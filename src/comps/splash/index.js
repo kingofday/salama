@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux';
 export default class Splash extends React.Component {
     componentDidMount() {
         setTimeout(() => {
-            console.log('splash...');
-            Actions.replace("root");
+            console.log('splash');
+            Actions.reset('routes');
         }, 2000)
     }
     _redirectToKingofday() {

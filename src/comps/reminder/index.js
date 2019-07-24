@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from 'native-base';
 import Layout, { CustomText } from '../shared/Public'
-import words from '../../shared/words'
+import words from '../../shared/constats'
 import alarm from './../../Biz/alarm';
 import Header from './Header'
 

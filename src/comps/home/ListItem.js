@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { View, Item, Icon } from 'native-base';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 //Comps
-import words from '../../shared/words';
+import words, { style } from '../../shared/constats';
 import { CustomText } from '../shared/Public';
 import { Actions } from 'react-native-router-flux';
 
+
 const styles = StyleSheet.create({
     section: {
-        borderWidth: 1,
-        borderColor: '#16a085',
+        borderWidth: 3,
+        borderColor: style.mainColor,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
-        height: 120,
-        backgroundColor:'#1abc9c'
+        height: 120
     },
     label: {
         paddingTop: 10,
         paddingBottom: 10,
-        color:'#fff'
+        color: style.mainColor
     },
     icon: {
         fontSize: 20,
-        color:'#fff'
+        color: '#fff'
     }
 });
 
